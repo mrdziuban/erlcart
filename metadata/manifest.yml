@@ -7,7 +7,7 @@ Version: '0.1'
 License: ASL 2.0
 Vendor: redhat
 Cartridge-Version: 0.0.2
-Cartridge-Vendor: wj 
+Cartridge-Vendor: wj
 Categories:
 - service
 - web_framework
@@ -41,4 +41,4 @@ Scaling:
   Max: -1
 Metrics:
 - uptime
-Source-Url: https://github.com/wozniakjan/erlcart/archive/phoenix.zip
+Source-Url: https://github.com/mrdziuban/erlcart/archive/cowboy-elixir.zip
