@@ -18,6 +18,6 @@ cp --symbolic-link "$DIR"/elixir/bin/* "$DIR"/bin/
 cd ..
 mkdir mix
 cd mix
-mix local.hex
+mix local.hex --force
 
 exit 0

@@ -13,9 +13,9 @@ function start() {
     echo "application $OPENSHIFT_APP_NAME is already running"
     exit 1
   fi
-  cd "$OPENSHIFT_REPO_DIR"/web
+  cd "$OPENSHIFT_REPO_DIR"
   echo "Starting $OPENSHIFT_APP_NAME"
-  elixir --detached -e "File.write! '$pid_file', :os.getpid" -S mix phoenix.server
+  elixir --detached -e "File.write! '$pid_file', :os.getpid" -S mix run --no-halt
   ret=$?
   if [ ! "$ret" -eq 0 ]; then
     echo "application $OPENSHIFT_APP_NAME failed to start - $ret" 1>&2
@@ -69,9 +69,9 @@ function status() {
 }
 
 function build() {
-  cd "$OPENSHIFT_REPO_DIR"/web
+  cd "$OPENSHIFT_REPO_DIR"
   echo "building $OPENSHIFT_APP_NAME"
-  (yes | elixir -S mix phoenix.init) || echo "ignore the error, it is makeshift workaround to compile dependencies"
+  yes | elixir -S mix deps.get deps.compile
   echo "building $OPENSHIFT_APP_NAME finished"
 }
 
